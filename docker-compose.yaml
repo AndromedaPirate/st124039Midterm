@@ -1,0 +1,18 @@
+version: '3.11'
+
+services:
+  dash:
+    command: tail -f /dev/null
+    image: ait-ml-2023-midterm
+    platform: linux/x86_64
+    build: 
+      context: .
+      dockerfile: .Dockerfile
+    ports:
+      - 7777:80
+    volumes:
+      - ./code:/root/code
+      - ./.vscode-server:/root/.vscode-server
+    environment:
+      - HOST=0.0.0.0
+      - PORT=80
